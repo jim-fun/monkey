@@ -51,6 +51,7 @@ import {
   zerologonIssueReport,
   zerologonOverviewWithFailedPassResetWarning
 } from './security/issues/ZerologonIssue';
+import {psExecIssueOverview, psExecIssueReport} from './security/issues/PsExecIssue';
 
 
 class ReportPageComponent extends AuthComponent {
@@ -149,6 +150,11 @@ class ReportPageComponent extends AuthComponent {
       'ZerologonExploiter': {
         [this.issueContentTypes.OVERVIEW]: zerologonIssueOverview,
         [this.issueContentTypes.REPORT]: zerologonIssueReport,
+        [this.issueContentTypes.TYPE]: this.issueTypes.DANGER
+      },
+      'PsExecExploiter': {
+        [this.issueContentTypes.OVERVIEW]: psExecIssueOverview,
+        [this.issueContentTypes.REPORT]: psExecIssueReport,
         [this.issueContentTypes.TYPE]: this.issueTypes.DANGER
       },
       'zerologon_pass_restore_failed': {
