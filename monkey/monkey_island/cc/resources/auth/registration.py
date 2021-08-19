@@ -17,7 +17,7 @@ class Registration(flask_restful.Resource):
         credentials = _get_user_credentials_from_request(request)
 
         try:
-            env_singleton.env.try_add_user(credentials)
+            env_singleton.env.try_add_user(credentials)  #SUC-1: new creds' addition begins here
             return make_response({"error": ""}, 200)
         except (InvalidRegistrationCredentialsError, RegistrationNotNeededError) as e:
             return make_response({"error": str(e)}, 400)

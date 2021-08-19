@@ -49,7 +49,7 @@ def run_monkey_island():
     _exit_on_invalid_config_options(config_options)
 
     _configure_logging(config_options)
-    _initialize_globals(config_options, server_config_path)
+    _initialize_globals(config_options, server_config_path)  # SUC-10: gets server config file path when data directory is setup
 
     mongo_db_process = None
     if config_options.start_mongodb:
@@ -86,7 +86,7 @@ def _configure_logging(config_options):
 
 
 def _initialize_globals(config_options: IslandConfigOptions, server_config_path: str):
-    env_singleton.initialize_from_file(server_config_path)
+    env_singleton.initialize_from_file(server_config_path)  #SUC-9
 
     initialize_encryptor(config_options.data_dir)
     initialize_services(config_options.data_dir)

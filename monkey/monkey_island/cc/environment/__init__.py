@@ -45,7 +45,7 @@ class Environment(object, metaclass=ABCMeta):
         if not credentials:
             raise InvalidRegistrationCredentialsError("Missing part of credentials.")
         if self._try_needs_registration():
-            self._config.add_user(credentials)
+            self._config.add_user(credentials)  # SUC-2
             logger.info(f"New user {credentials.username} registered!")
 
     def _try_needs_registration(self) -> bool:
